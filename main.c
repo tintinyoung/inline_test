@@ -3,11 +3,12 @@
 
 int main(void)
 {
-    int x = 1;
-    printf("%s inline %d->%d, func=%p\n", __FILE__, x, convert2(x), convert2);
+    char tu[TU_NAME_LEN] = {0};
+    get_tu_name(tu);
+    printf("%s inline %d->%d, func=%p\n", __FILE__, tu, get_tu_name);
 
-    CONVERT convert = convert2;
-    show_non_inline_in_utils(x, convert, __FILE__);
+    TU_NAME tu_name = get_tu_name;
+    show_non_inline_in_utils(tu_name, __FILE__);
 
     show_utils(x);
 

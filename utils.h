@@ -1,11 +1,15 @@
 #pragma once
 
-typedef int (*CONVERT)(int x);
+#include <string.h>
 
-inline int convert2(int x)
+#define TU_NAME_LEN  32
+typedef void (*TU_NAME)(char *x);
+
+inline void get_tu_name(char *tu)
 {
-    return x + CONVERT_BASE;
+    if (!tu) return;
+    strcpy(tu, TU);
 }
 
-void show_utils(int x);
-void show_non_inline_in_utils(int x, CONVERT convert, const char *file);
+void show_utils(void);
+void show_non_inline_in_utils(TU_NAME tu_name, const char *file);

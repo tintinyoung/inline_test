@@ -1,24 +1,28 @@
 #include <stdio.h>
 #include "utils.h"
 
-extern int convert2(int x);
+extern void get_tu_name(char *tu);
 
-void show_inline_in_utils(int x);
+void show_inline_in_utils(void);
 
-void show_utils(int x)
+void show_utils(void)
 {
-    show_inline_in_utils(x);
+    show_inline_in_utils();
 
-    CONVERT convert = convert2;
-    show_non_inline_in_utils(x, convert, __FILE__);
+    TU_NAME tu_name = get_tu_name;
+    show_non_inline_in_utils(tu_name, __FILE__);
 }
 
-void show_inline_in_utils(int x)
+void show_inline_in_utils(void)
 {
-    printf("%s inline %d->%d, func=%p\n", __FILE__, x, convert2(x), convert2);
+    char tu[TU_NAME_LEN] = {0};
+    get_tu_name(tu);
+    printf("%s:%s, func=%p\n", __FILE__, tu, get_tu_name);
 }
 
-void show_non_inline_in_utils(int x, CONVERT convert, const char *file)
+void show_non_inline_in_utils(TU_NAME tu_name, const char *file)
 {
-    printf("%s %d->%d, func=%p\n", file, x, convert(x), convert);
+    char tu[TU_NAME_LEN] = {0};
+    tu_name(tu);
+    printf("%s:%s, func=%p\n", file, tu_name(), tu_name);
 }
