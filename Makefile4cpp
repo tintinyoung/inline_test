@@ -1,0 +1,5 @@
+CC=g++
+STD=c++11
+OPTIM=-O2
+
+include test_inline.mk

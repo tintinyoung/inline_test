@@ -19,13 +19,18 @@ endef
 
 .PHONY: clean ordered_build reversed_build
 
-ordered_build: clean $(ordered_objs) $(bin)
-reversed_build: clean $(reversed_objs) $(bin)
+ordered_build: clean ordered_bin
+reversed_build: clean reversed_bin
 
-$(bin): $(objs)
-	$(CC) $(objs) -o $(bin)
-	$(call dump_inline_symbols)
+ordered_bin: $(ordered_objs)
+	$(CC) $(ordered_objs) -o $(bin)
 	echo "run test:" && ./test_inline
+	$(call dump_inline_symbols)
+
+reversed_bin: $(reversed_objs)
+	$(CC) $(reversed_objs) -o $(bin)
+	echo "run test:" && ./test_inline
+	$(call dump_inline_symbols)
 
 clean:
 	rm -f *.o
