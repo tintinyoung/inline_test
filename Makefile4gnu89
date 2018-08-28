@@ -1,0 +1,5 @@
+CC=gcc
+STD=gnu89
+OPTIM=-O2
+
+include test_inline.mk
