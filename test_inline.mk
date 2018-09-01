@@ -37,4 +37,4 @@ clean:
 	rm -f test_inline
 
 %.o: %.c
-	$(CC) $(OPTIM) --std=$(STD) -DTU=\"$(patsubst %.c,[%],$<)\" -c $< -o $@
+	$(CC) $(OPTIM) -Winline --std=$(STD) -DTU=\"$(patsubst %.c,[%],$<)\" -c $< -o $@
