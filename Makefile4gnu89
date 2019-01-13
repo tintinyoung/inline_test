@@ -1,5 +1,6 @@
 CC=gcc
 STD=gnu89
-OPTIM=-O2
+OPTIM=-O0
 
-include test_inline.mk
+include srcs.mk
+include test.mk

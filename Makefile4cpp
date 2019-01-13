@@ -2,4 +2,5 @@ CC=g++
 STD=c++11
 OPTIM=-O2
 
-include test_inline.mk
+include srcs.mk
+include test.mk

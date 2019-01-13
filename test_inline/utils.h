@@ -3,6 +3,17 @@
 #include <string.h>
 
 #define TU_NAME_LEN  32
+
+static const int g_desc[] = {
+    1,
+    2,
+    3,
+    4,
+    5
+};
+
+static const int g_descNum = sizeof(g_desc) / sizeof(g_desc[0]);
+
 typedef void (*TU_NAME)(char *tu);
 
 inline void get_tu_name(char *tu)
@@ -11,10 +22,12 @@ inline void get_tu_name(char *tu)
     strcpy(tu, TU);
 }
 
+#if 0
 inline int convert2(int x)
 {
     return x + 100;
 }
+#endif
 
 // 源文件或者头文件中定义静态函数
 // gcc4.3.4中wdwd

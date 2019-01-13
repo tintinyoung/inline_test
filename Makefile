@@ -2,4 +2,5 @@ CC=gcc
 STD=c99
 OPTIM=-O2
 
-include test_inline.mk
+include srcs.mk
+include test.mk
