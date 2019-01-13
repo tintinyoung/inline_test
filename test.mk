@@ -28,4 +28,4 @@ debug:
 	echo $(srcs)
 
 %.o: %.c
-	$(CC) $(OPTIM) -Winline -Wall --std=$(STD) -DTU=\"$(patsubst %.c,[%],$<)\" -c $< -o $@
+	$(CC) $(OPTIM) -Winline -Wall --std=$(STD) $(options) -c $< -o $@

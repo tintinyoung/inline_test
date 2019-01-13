@@ -1,6 +1,7 @@
 srcs+=$(shell find ./test_inline -maxdepth 1 -name "*.c")
 objs+=$(subst .c,.o,$(srcs))
 bin:=inline
+options += -DTU=\"$(patsubst %.c,[%],$<)\"
 inline_symbols = get_tu_name convert2
 
 define dump_inline_symbols
