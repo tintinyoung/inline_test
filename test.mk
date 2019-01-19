@@ -14,6 +14,7 @@ reversed_build: clean reversed_bin
 
 ordered_bin: $(ordered_objs)
 	$(CC) $(ordered_objs) -o $(bin)
+	objdump -disassemble $(bin) > $(bin).disa
 	echo "run test:" && ./$(bin)
 
 reversed_bin: $(reversed_objs)
@@ -28,4 +29,4 @@ debug:
 	echo $(srcs)
 
 %.o: %.c
-	$(CC) $(OPTIM) -Winline -Wall --std=$(STD) $(options) -c $< -o $@
+	$(CC) $(OPTIM) -Winline -Wall --std=$(STD) $(includes) $(options) -c $< -o $@

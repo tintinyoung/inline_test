@@ -1,6 +1,6 @@
 CC=gcc
 STD=c99
-OPTIM=-O2
+OPTIM=-g
 
 include srcs.mk
 include test.mk
