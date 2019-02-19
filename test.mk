@@ -29,4 +29,4 @@ debug:
 	echo $(srcs)
 
 %.o: %.c
-	$(CC) $(OPTIM) -Winline -Wall --std=$(STD) $(includes) $(options) -c $< -o $@
+	$(CC) $(OPTIM) -Winline -Wall -std=$(STD) $(includes) $(options) -c $< -o $@
