@@ -1,5 +1,5 @@
 CC=gcc
-STD=c89
+STD=c11
 OPTIM=-g
 
 include srcs.mk

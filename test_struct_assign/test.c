@@ -61,6 +61,11 @@ int test(void)
     const unsigned long size = sizeof(struct A) + ARRAY_SIZE * sizeof(char);
     int x = 100;
     struct A *a = malloc(size);
+
+    int x1 = -9;
+    unsigned char y = (x1 & 0xf0000000UL);
+    printf("x=%d(%x),y=%x\n", x1, (unsigned int)x1, y);
+
     a->a = 1;
     a->b[0] = 0;
     a->b[1] = 2;
